@@ -1,5 +1,16 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
+
+const fadeInUp = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
 
 const Card = styled.div`
   background: ${({ theme }) => theme.body};
@@ -11,12 +22,14 @@ const Card = styled.div`
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
   padding: 1rem;
+  animation: ${fadeInUp} 0.6s ease-out;
 
   img {
     border: 15px solid ${({ theme }) => theme.accent};
     border-radius: 8px;
     margin: 0 0 1rem 0;
     max-width: 100%;
+    transition: transform 0.3s ease, border-color 0.3s ease;
   }
 
   ul {
@@ -28,14 +41,20 @@ const Card = styled.div`
   h3 {
     margin-top: 1rem;
     color: ${({ theme }) => theme.accent};
+    transition: color 0.3s ease;
   }
 
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
     border-color: ${({ theme }) => theme.accent};
+
+    img {
+      transform: scale(1.05);
+      border-color: ${({ theme }) => theme.accent};
+    }
   }
 
   @media (max-width: 799px) {
@@ -60,14 +79,21 @@ const BotonVolver = styled(Link)`
   text-decoration: none;
   border: 1px solid ${({ theme }) => theme.border};
   border-radius: 5px;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-align: center;
+  position: relative;
+  overflow: hidden;
 
   &:hover {
     background-color: ${({ theme }) => theme.accent};
     color: ${({ theme }) => theme.body};
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    border-color: ${({ theme }) => theme.accent};
+  }
+
+  &:active {
+    transform: translateY(-1px) scale(1.02);
   }
 
   @media (max-width: 799px) {
@@ -88,11 +114,23 @@ export const Tarjeta = ({ ...data }) => (
     <p>📍 {data.ubicacion}</p>
     <p>🎂 {data.edad}</p>
     <h3>🎯 Habilidades</h3>
-    <ul>{data.habilidades.map((h, i) => <li key={i}>{h}</li>)}</ul>
+    <ul>
+      {data.habilidades.map((h, i) => (
+        <li key={i}>{h}</li>
+      ))}
+    </ul>
     <h3>🎬 Películas favoritas</h3>
-    <ul>{data.peliculas.map((p, i) => <li key={i}>{p}</li>)}</ul>
+    <ul>
+      {data.peliculas.map((p, i) => (
+        <li key={i}>{p}</li>
+      ))}
+    </ul>
     <h3>🎵 Música favorita</h3>
-    <ul>{data.musica.map((m, i) => <li key={i}>{m}</li>)}</ul>
+    <ul>
+      {data.musica.map((m, i) => (
+        <li key={i}>{m}</li>
+      ))}
+    </ul>
     <BotonVolver to="/nosotros">Volver a Nosotros</BotonVolver>
   </Card>
 );

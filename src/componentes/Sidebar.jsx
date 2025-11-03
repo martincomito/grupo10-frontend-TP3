@@ -1,43 +1,33 @@
-import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
-export const Sidebar = ({
-  sidebarAbierto,
-  toggleSidebar,
-  cambiarTheme,
-  theme,
-}) => {
+export const Sidebar = ({ sidebarAbierto, toggleSidebar, cambiarTheme, theme }) => {
   return (
     <SidebarStyled sidebarAbierto={sidebarAbierto}>
-      <Logo
-        onClick={() => (window.location.href = "/")}
-        style={{ cursor: "pointer" }}
-      >
-        {sidebarAbierto ? "🎨 Museo Grupazo" : "🎨"}
+      <Logo onClick={() => (window.location.href = '/')} style={{ cursor: 'pointer' }}>
+        {sidebarAbierto ? '🎨 Museo Grupazo' : '🎨'}
       </Logo>
       <Menu>
         <MenuItem sidebarAbierto={sidebarAbierto}>
-          <NavLink to="/">🏠 {sidebarAbierto && "Inicio"}</NavLink>
+          <NavLink to="/">🏠 {sidebarAbierto && 'Inicio'}</NavLink>
         </MenuItem>
         <MenuItem sidebarAbierto={sidebarAbierto}>
-          <NavLink to="/bitacora">📖 {sidebarAbierto && "Bitácora"}</NavLink>
+          <NavLink to="/bitacora">📖 {sidebarAbierto && 'Bitácora'}</NavLink>
         </MenuItem>
         <MenuItem sidebarAbierto={sidebarAbierto}>
-          <NavLink to="/nosotros">👥 {sidebarAbierto && "Nosotros"}</NavLink>
+          <NavLink to="/nosotros">👥 {sidebarAbierto && 'Nosotros'}</NavLink>
         </MenuItem>
         <MenuItem sidebarAbierto={sidebarAbierto}>
-          <NavLink to="/pintores">🖌️ {sidebarAbierto && "Pintores"}</NavLink>
+          <NavLink to="/pintores">🖌️ {sidebarAbierto && 'Pintores'}</NavLink>
         </MenuItem>
         <MenuItem sidebarAbierto={sidebarAbierto}>
-          <NavLink to="/galeria">🖼️ {sidebarAbierto && "Galería"}</NavLink>
+          <NavLink to="/galeria">🖼️ {sidebarAbierto && 'Galería'}</NavLink>
         </MenuItem>
       </Menu>
 
       <BottomSection>
-        <Button onClick={toggleSidebar}>{sidebarAbierto ? "⬅️" : "➡️"}</Button>
-        <Button onClick={cambiarTheme}>
-          {theme === "light" ? "🌙" : "☀️"}
-        </Button>
+        <Button onClick={toggleSidebar}>{sidebarAbierto ? '⬅️' : '➡️'}</Button>
+        <Button onClick={cambiarTheme}>{theme === 'light' ? '🌙' : '☀️'}</Button>
       </BottomSection>
     </SidebarStyled>
   );
@@ -45,13 +35,13 @@ export const Sidebar = ({
 
 // Estilos
 const SidebarStyled = styled.aside.withConfig({
-  shouldForwardProp: (prop) => prop !== "sidebarAbierto",
+  shouldForwardProp: prop => prop !== 'sidebarAbierto',
 })`
   position: fixed;
   left: 0;
   top: 0;
   height: 100vh;
-  width: ${({ sidebarAbierto }) => (sidebarAbierto ? "250px" : "80px")};
+  width: ${({ sidebarAbierto }) => (sidebarAbierto ? '250px' : '80px')};
   background-color: ${({ theme }) => theme.secondary};
   color: ${({ theme }) => theme.fontColor};
   display: flex;
@@ -63,11 +53,11 @@ const SidebarStyled = styled.aside.withConfig({
   z-index: 1000;
 
   @media (max-width: 799px) {
-    width: ${({ sidebarAbierto }) => (sidebarAbierto ? "220px" : "70px")};
+    width: ${({ sidebarAbierto }) => (sidebarAbierto ? '220px' : '70px')};
   }
 
   @media (max-width: 399px) {
-    width: ${({ sidebarAbierto }) => (sidebarAbierto ? "180px" : "60px")};
+    width: ${({ sidebarAbierto }) => (sidebarAbierto ? '180px' : '60px')};
   }
 `;
 
@@ -75,6 +65,12 @@ const Logo = styled.h2`
   text-align: center;
   margin: 1.5rem 0;
   font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    color: ${({ theme }) => theme.accent};
+  }
 `;
 
 const Menu = styled.ul`
@@ -84,25 +80,36 @@ const Menu = styled.ul`
 `;
 
 const MenuItem = styled.li.withConfig({
-  shouldForwardProp: (prop) => prop !== "sidebarAbierto",
+  shouldForwardProp: prop => prop !== 'sidebarAbierto',
 })`
   margin: 1rem 0;
-  text-align: ${({ sidebarAbierto }) => (sidebarAbierto ? "left" : "center")};
-  padding-left: ${({ sidebarAbierto }) => (sidebarAbierto ? "1.5rem" : "0")};
+  text-align: ${({ sidebarAbierto }) => (sidebarAbierto ? 'left' : 'center')};
+  padding-left: ${({ sidebarAbierto }) => (sidebarAbierto ? '1.5rem' : '0')};
 
   a {
     text-decoration: none;
     color: ${({ theme }) => theme.fontColor};
-    transition: color 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: block;
+    padding: 0.5rem 0;
+    border-radius: 6px;
+    position: relative;
 
     &:hover {
       color: ${({ theme }) => theme.accent};
+      transform: translateX(5px);
+      padding-left: 0.5rem;
+    }
+
+    &.active {
+      color: ${({ theme }) => theme.accent};
+      font-weight: 600;
     }
   }
 
   @media (max-width: 799px) {
     margin: clamp(0.6rem, 2vh, 0.8rem) 0;
-    padding-left: ${({ sidebarAbierto }) => (sidebarAbierto ? "1rem" : "0")};
+    padding-left: ${({ sidebarAbierto }) => (sidebarAbierto ? '1rem' : '0')};
   }
 
   @media (max-width: 399px) {
@@ -118,26 +125,30 @@ const BottomSection = styled.div`
 `;
 
 const Button = styled.button`
-  background-color: transparent;
+  background-color: ${({ theme }) => theme.secondary};
   color: ${({ theme }) => theme.fontColor};
-  border: none;
+  border: 1px solid ${({ theme }) => theme.border};
   border-radius: 6px;
   padding: 0.8rem 1.2rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 0.9rem;
   font-weight: 500;
   width: 100%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
 
   &:hover {
-    background-color: ${({ theme }) => theme.secondary};
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    background-color: ${({ theme }) => theme.accent};
+    color: ${({ theme }) => theme.body};
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    border-color: ${({ theme }) => theme.accent};
   }
 
   &:active {
-    transform: translateY(0);
+    transform: translateY(-1px) scale(1);
   }
 
   @media (max-width: 799px) {
