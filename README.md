@@ -2,6 +2,8 @@
 
 [Link](https://github.com/lucre-ph/reactG10) a la versión anterior del proyecto en GitHub con su README.
 
+[Link al proyecto en Vercel](https://grupo10-frontend-tp-3.vercel.app/)
+
 ## 📁 Estructura del Proyecto luego de los últimos cambios
 
 ```
