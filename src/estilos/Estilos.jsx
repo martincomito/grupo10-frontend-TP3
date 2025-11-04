@@ -14,7 +14,7 @@ export const Dark = {
   body: '#1a1a1a',
   fontColor: '#f0e6d2',
   backgroundImage: 'url("/imagenes/museodark.jpg")',
-  accent: '#7e7aa0ff',
+  accent: '#7e7aa0',
   secondary: '#4a4a4a',
   border: '#6b6b6b',
   inputBorder: '#6b6b6b',

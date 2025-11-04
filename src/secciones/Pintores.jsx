@@ -17,7 +17,7 @@ const fadeInUp = keyframes`
 const Container = styled.div`
   text-align: center;
   padding: 2rem 1rem;
-
+  width: 100%;
   @media (max-width: 799px) {
     padding: 1.5rem 0.8rem;
   }

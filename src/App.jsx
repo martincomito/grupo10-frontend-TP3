@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import { BrowserRouter } from "react-router-dom";
-import { Sidebar } from "./componentes/Sidebar";
-import { Rutas } from "./rutas/rutas";
-import { Footer } from "./componentes/Footer";
-import { Light, Dark } from "./estilos/Estilos";
-import { ThemeProvider, styled } from "styled-components";
+import React, { useState } from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { Sidebar } from './componentes/Sidebar';
+import { Rutas } from './rutas/rutas';
+import { Footer } from './componentes/Footer';
+import { Light, Dark } from './estilos/Estilos';
+import { ThemeProvider, styled } from 'styled-components';
 
 export const ThemeContext = React.createContext(null);
 
 function App() {
-  const [theme, setTheme] = useState("light");
-  const estiloTheme = theme === "light" ? Light : Dark;
+  const [theme, setTheme] = useState('light');
+  const estiloTheme = theme === 'light' ? Light : Dark;
   const cambiarTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
+    setTheme(theme === 'light' ? 'dark' : 'light');
   };
   const [sidebarAbierto, setSidebarAbierto] = useState(false);
   const toggleSidebar = () => setSidebarAbierto(!sidebarAbierto);
@@ -22,6 +22,7 @@ function App() {
       <ThemeContext.Provider value={{ theme, setTheme }}>
         <ThemeProvider theme={estiloTheme}>
           <BrowserRouter>
+            <Overlay sidebarAbierto={sidebarAbierto} onClick={toggleSidebar} />
             <Contenedor sidebarAbierto={sidebarAbierto}>
               <Sidebar
                 sidebarAbierto={sidebarAbierto}
@@ -41,13 +42,30 @@ function App() {
   );
 }
 
+const Overlay = styled.div.withConfig({
+  shouldForwardProp: prop => prop !== 'sidebarAbierto',
+})`
+  display: none;
+
+  @media (min-width: 500px) {
+    display: ${({ sidebarAbierto }) => (sidebarAbierto ? 'block' : 'none')};
+    position: fixed;
+    top: 0;
+    left: 80px;
+    width: calc(100% - 80px);
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    transition: opacity 0.3s ease;
+  }
+`;
+
 const Contenedor = styled.div.withConfig({
-  shouldForwardProp: (prop) => prop !== "sidebarAbierto",
+  shouldForwardProp: prop => prop !== 'sidebarAbierto',
 })`
   background-color: ${({ theme }) => theme.body};
   color: ${({ theme }) => theme.fontColor};
-  margin-left: ${({ sidebarAbierto }) => (sidebarAbierto ? "250px" : "80px")};
-  background-image: ${({ theme }) => theme.backgroundImage || "none"};
+  background-image: ${({ theme }) => theme.backgroundImage || 'none'};
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -57,15 +75,25 @@ const Contenedor = styled.div.withConfig({
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  transition: margin-left 0.3s ease;
+  box-sizing: border-box;
+  margin-left: 80px;
+  width: calc(100% - 80px);
 
-  @media (max-width: 799px) {
-    margin-left: 0;
+  @media (max-width: 499px) {
+    margin-left: ${({ sidebarAbierto }) => (sidebarAbierto ? '220px' : '70px')};
+    width: ${({ sidebarAbierto }) => (sidebarAbierto ? 'calc(100% - 220px)' : 'calc(100% - 70px)')};
     padding: clamp(1rem, 3vw, 1.5rem);
+    padding-right: clamp(1rem, 2vw, 1.2rem);
+    padding-left: clamp(1rem, 2vw, 1.2rem);
+    transition: margin-left 0.3s ease, width 0.3s ease;
   }
 
   @media (max-width: 399px) {
+    margin-left: ${({ sidebarAbierto }) => (sidebarAbierto ? '180px' : '60px')};
+    width: ${({ sidebarAbierto }) => (sidebarAbierto ? 'calc(100% - 180px)' : 'calc(100% - 60px)')};
     padding: clamp(0.8rem, 2vw, 1rem);
+    padding-right: clamp(0.8rem, 1.5vw, 1rem);
+    padding-left: clamp(0.8rem, 1.5vw, 1rem);
   }
 `;
 
@@ -78,8 +106,8 @@ const Main = styled.main`
   color: ${({ theme }) => theme.fontColor};
   border-radius: 12px;
   padding: 2rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   margin-bottom: 2rem;
+  flex-shrink: 0;
 `;
 
 export default App;

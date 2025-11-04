@@ -5,7 +5,8 @@ export const Sidebar = ({ sidebarAbierto, toggleSidebar, cambiarTheme, theme }) 
   return (
     <SidebarStyled sidebarAbierto={sidebarAbierto}>
       <Logo onClick={() => (window.location.href = '/')} style={{ cursor: 'pointer' }}>
-        {sidebarAbierto ? '🎨 Museo Grupazo' : '🎨'}
+        <LogoImagen src="/museo.ico" alt="Museo Grupazo" />
+        {sidebarAbierto && <LogoTexto>Museo Grupazo</LogoTexto>}
       </Logo>
       <Menu>
         <MenuItem sidebarAbierto={sidebarAbierto}>
@@ -52,7 +53,11 @@ const SidebarStyled = styled.aside.withConfig({
   transition: all 0.3s ease;
   z-index: 1000;
 
-  @media (max-width: 799px) {
+  @media (min-width: 500px) {
+    z-index: ${({ sidebarAbierto }) => (sidebarAbierto ? '1001' : '1000')};
+  }
+
+  @media (max-width: 499px) {
     width: ${({ sidebarAbierto }) => (sidebarAbierto ? '220px' : '70px')};
   }
 
@@ -66,11 +71,26 @@ const Logo = styled.h2`
   margin: 1.5rem 0;
   font-size: clamp(1.1rem, 2.5vw, 1.3rem);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 
   &:hover {
     transform: scale(1.05);
     color: ${({ theme }) => theme.accent};
   }
+`;
+
+const LogoImagen = styled.img`
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  flex-shrink: 0;
+`;
+
+const LogoTexto = styled.span`
+  white-space: nowrap;
 `;
 
 const Menu = styled.ul`

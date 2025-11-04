@@ -17,7 +17,6 @@ const Card = styled.div`
   color: ${({ theme }) => theme.fontColor};
   border: 2px solid ${({ theme }) => theme.border};
   border-radius: 8px;
-  margin: 2rem auto;
   max-width: 400px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;

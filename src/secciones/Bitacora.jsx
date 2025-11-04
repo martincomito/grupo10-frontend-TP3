@@ -8,13 +8,13 @@ const BitacoraContainer = styled.div`
   padding: 2rem 1rem;
 
   @media (max-width: 799px) {
-    padding: 1.5rem 0.8rem;
-    max-width: 90%;
+    padding: 0;
+    max-width: 100%;
   }
 
   @media (max-width: 399px) {
-    padding: 1rem 0.6rem;
-    max-width: 95%;
+    padding: 0;
+    max-width: 100%;
   }
 `;
 
@@ -22,7 +22,8 @@ const Title = styled.h1`
   text-align: center;
   margin-bottom: 2rem;
   color: ${({ theme }) => theme.fontColor};
-  text-shadow: ${({ theme }) => theme === Light ? '2px 2px 4px rgba(0,0,0,0.5)' : 'none'};
+  background-color: ${({ theme }) => theme.body};
+  border-radius: 6px;
 `;
 
 const Section = styled.section`
@@ -109,7 +110,7 @@ const BotonVolver = styled(Link)`
     background-color: ${({ theme }) => theme.accent};
     color: ${({ theme }) => theme.body};
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
   @media (max-width: 799px) {
@@ -131,10 +132,10 @@ export const Bitacora = () => {
       <Section>
         <h2>Descripción General</h2>
         <p>
-          Este documento documenta el trabajo colaborativo del grupo 10 en el desarrollo 
-          de una Single Page Application (SPA) en React. La aplicación es un museo virtual 
-          dedicado a artistas famosos y obras de arte, incorporando datos locales (JSON) 
-          y consumo de una API pública (Metropolitan Museum).
+          Este documento documenta el trabajo colaborativo del grupo 10 en el desarrollo de una
+          Single Page Application (SPA) en React. La aplicación es un museo virtual dedicado a
+          artistas famosos y obras de arte, incorporando datos locales (JSON) y consumo de una API
+          pública (Metropolitan Museum).
         </p>
       </Section>
 
@@ -142,40 +143,72 @@ export const Bitacora = () => {
         <h2>Equipo de Trabajo</h2>
         <TeamMember>
           <h3>Licha</h3>
-          <p><strong>Rol:</strong> Desarrollo Frontend / Hardware</p>
-          <p><strong>Contribuciones:</strong> Diseño de componentes, edición de video, integraciones</p>
+          <p>
+            <strong>Rol:</strong> Desarrollo Frontend / Hardware
+          </p>
+          <p>
+            <strong>Contribuciones:</strong> Diseño de componentes, edición de video, integraciones
+          </p>
         </TeamMember>
         <TeamMember>
           <h3>Lu</h3>
-          <p><strong>Rol:</strong> Desarrollo Frontend</p>
-          <p><strong>Contribuciones:</strong> Componentes de UI, testeo, correcciones</p>
+          <p>
+            <strong>Rol:</strong> Desarrollo Frontend
+          </p>
+          <p>
+            <strong>Contribuciones:</strong> Componentes de UI, testeo, correcciones
+          </p>
         </TeamMember>
         <TeamMember>
           <h3>Mila</h3>
-          <p><strong>Rol:</strong> Desarrollo Frontend / QA</p>
-          <p><strong>Contribuciones:</strong> Debug, documentación, calidad del código</p>
+          <p>
+            <strong>Rol:</strong> Desarrollo Frontend / QA
+          </p>
+          <p>
+            <strong>Contribuciones:</strong> Debug, documentación, calidad del código
+          </p>
         </TeamMember>
         <TeamMember>
           <h3>Pablo</h3>
-          <p><strong>Rol:</strong> Lead Developer / Arquitectura</p>
-          <p><strong>Contribuciones:</strong> Estructura del proyecto, rutas, integración de APIs</p>
+          <p>
+            <strong>Rol:</strong> Lead Developer / Arquitectura
+          </p>
+          <p>
+            <strong>Contribuciones:</strong> Estructura del proyecto, rutas, integración de APIs
+          </p>
         </TeamMember>
         <TeamMember>
           <h3>Tincho</h3>
-          <p><strong>Rol:</strong> Desarrollo Full Stack</p>
-          <p><strong>Contribuciones:</strong> Componentes, styling, optimizaciones</p>
+          <p>
+            <strong>Rol:</strong> Desarrollo Full Stack
+          </p>
+          <p>
+            <strong>Contribuciones:</strong> Componentes, styling, optimizaciones
+          </p>
         </TeamMember>
       </Section>
 
       <Section>
         <h2>Tecnologías Utilizadas</h2>
         <ul>
-          <li><strong>React</strong> - Librería para construir la interfaz</li>
-          <li><strong>React Router</strong> - Navegación entre secciones (SPA)</li>
-          <li><strong>Styled Components</strong> - Estilos CSS-in-JS con temas</li>
-          <li><strong>Axios</strong> - Cliente HTTP para consumir APIs</li>
-          <li><strong>Vercel</strong> - Plataforma de deploy</li>
-          <li><strong>GitHub</strong> - Control de versiones</li>
+          <li>
+            <strong>React</strong> - Librería para construir la interfaz
+          </li>
+          <li>
+            <strong>React Router</strong> - Navegación entre secciones (SPA)
+          </li>
+          <li>
+            <strong>Styled Components</strong> - Estilos CSS-in-JS con temas
+          </li>
+          <li>
+            <strong>Axios</strong> - Cliente HTTP para consumir APIs
+          </li>
+          <li>
+            <strong>Vercel</strong> - Plataforma de deploy
+          </li>
+          <li>
+            <strong>GitHub</strong> - Control de versiones
+          </li>
         </ul>
       </Section>
 
@@ -210,17 +243,23 @@ export const Bitacora = () => {
       <Section>
         <h2>Puntos de Quiebre Responsive</h2>
         <ul>
-          <li><strong>Desktop:</strong> 1024px y mayores - Layout completo</li>
-          <li><strong>Tablet:</strong> 768px a 1023px - Sidebar reducido, grid adaptado</li>
-          <li><strong>Mobile:</strong> Menos de 768px - Sidebar colapsado, single column</li>
+          <li>
+            <strong>Desktop:</strong> 1024px y mayores - Layout completo
+          </li>
+          <li>
+            <strong>Tablet:</strong> 768px a 1023px - Sidebar reducido, grid adaptado
+          </li>
+          <li>
+            <strong>Mobile:</strong> Menos de 768px - Sidebar colapsado, single column
+          </li>
         </ul>
       </Section>
 
       <Section>
         <h2>Flujo de Trabajo y Commits</h2>
         <p>
-          El equipo ha utilizado Git para versionado colaborativo, realizando commits 
-          frecuentes y organizados que reflejan cada cambio significativo en el proyecto.
+          El equipo ha utilizado Git para versionado colaborativo, realizando commits frecuentes y
+          organizados que reflejan cada cambio significativo en el proyecto.
         </p>
         <ul>
           <li>Estructura organizada en ramas por features</li>
@@ -233,24 +272,24 @@ export const Bitacora = () => {
       <Section>
         <h2>Desafíos Encontrados y Soluciones</h2>
         <div>
-          <h3 style={{marginTop: 0}}>Problema: Fondo de imagen en todos los elementos</h3>
+          <h3 style={{ marginTop: 0 }}>Problema: Fondo de imagen en todos los elementos</h3>
           <p>
-            <strong>Solución:</strong> Mover el background solo a #root y al body, 
-            no aplicarlo globalmente a todos los divs.
+            <strong>Solución:</strong> Mover el background solo a #root y al body, no aplicarlo
+            globalmente a todos los divs.
           </p>
         </div>
         <div>
           <h3>Problema: Sidebar deficiente en móvil</h3>
           <p>
-            <strong>Solución:</strong> Implementar media queries específicas y cambiar 
+            <strong>Solución:</strong> Implementar media queries específicas y cambiar
             comportamiento del sidebar en pantallas pequeñas.
           </p>
         </div>
         <div>
           <h3>Problema: API requests excesivos</h3>
           <p>
-            <strong>Solución:</strong> Optimizar la galería con lazy loading y 
-            manejo de errores mejorado.
+            <strong>Solución:</strong> Optimizar la galería con lazy loading y manejo de errores
+            mejorado.
           </p>
         </div>
       </Section>
@@ -258,8 +297,8 @@ export const Bitacora = () => {
       <Section>
         <h2>Estructura del Proyecto</h2>
         <p>
-          Consulta el diagrama de organización de carpetas en la documentación 
-          para una visualización clara de la estructura del proyecto.
+          Consulta el diagrama de organización de carpetas en la documentación para una
+          visualización clara de la estructura del proyecto.
         </p>
         <ul>
           <li>/src/componentes - Componentes reutilizables</li>

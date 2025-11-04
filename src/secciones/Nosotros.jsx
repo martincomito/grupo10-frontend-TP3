@@ -92,16 +92,19 @@ const ContenedorNosotros = styled.div`
   padding: 2rem;
   background-color: ${({ theme }) => theme.body};
   border-radius: 12px;
+  max-width: 600px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   color: ${({ theme }) => theme.fontColor};
   border: 1px solid ${({ theme }) => theme.border};
 
   @media (max-width: 799px) {
     padding: 1.5rem;
+    max-width: 400px;
   }
 
   @media (max-width: 399px) {
     padding: 1rem;
+    max-width: 300px;
   }
 `;
 

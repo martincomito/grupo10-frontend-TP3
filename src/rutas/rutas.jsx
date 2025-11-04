@@ -25,6 +25,10 @@ const fadeIn = keyframes`
 const ContenedorRutasAnimado = styled.div`
   animation: ${fadeIn} 0.4s ease-out;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
 `;
 
 export const Rutas = () => {
