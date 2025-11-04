@@ -99,7 +99,7 @@ const ContenedorNosotros = styled.div`
 
   @media (max-width: 799px) {
     padding: 1.5rem;
-    max-width: 400px;
+    max-width: 100%;
   }
 
   @media (max-width: 399px) {

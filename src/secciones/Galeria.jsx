@@ -132,6 +132,7 @@ const ControlesPaginacion = styled.div`
     gap: 0.8rem;
     margin: 1.5rem 0;
     padding: 0.8rem;
+    flex-direction: column;
   }
 
   @media (max-width: 399px) {
