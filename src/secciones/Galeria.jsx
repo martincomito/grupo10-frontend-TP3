@@ -275,8 +275,10 @@ const MetGallery = () => {
           })
         );
 
-        // Filtrar resultados nulos (objetos que no se pudieron cargar)
-        const resultadosFiltrados = resultados.filter(art => art !== null);
+        // Filtrar resultados nulos y obras sin imagen
+        const resultadosFiltrados = resultados.filter(
+          art => art !== null && (art.primaryImageSmall || art.primaryImage)
+        );
 
         // Actualizar estado directamente
         setPinturas(resultadosFiltrados);
@@ -306,7 +308,7 @@ const MetGallery = () => {
 
   return (
     <div>
-      <Titulo>Obras del pintor August Renoir</Titulo>
+      <Titulo>Obras de artistas famosos</Titulo>
       {!cargando && !error && totalObjetos > 0 && (
         <ControlesPaginacion>
           <BotonPaginacion onClick={paginaAnterior} disabled={paginaActual === 0}>
@@ -337,21 +339,21 @@ const MetGallery = () => {
 
       {!cargando && !error && pinturas.length > 0 && (
         <Gallery>
-          {pinturas.map(art => (
-            <Card key={art.objectID}>
-              <img
-                src={art.primaryImageSmall || art.primaryImage || ''}
-                alt={art.title || 'Obra del MET'}
-              />
-              <h3>{art.title || 'Sin título'}</h3>
-              <p>
-                <strong>Artista:</strong> {art.artistDisplayName || 'Desconocido'}
-              </p>
-              <p>
-                <strong>Año:</strong> {art.objectDate || 'Sin fecha'}
-              </p>
-            </Card>
-          ))}
+          {pinturas.map(art => {
+            const imageUrl = art.primaryImageSmall || art.primaryImage;
+            return (
+              <Card key={art.objectID}>
+                {imageUrl && <img src={imageUrl} alt={art.title || 'Obra del MET'} />}
+                <h3>{art.title || 'Sin título'}</h3>
+                <p>
+                  <strong>Artista:</strong> {art.artistDisplayName || 'Desconocido'}
+                </p>
+                <p>
+                  <strong>Año:</strong> {art.objectDate || 'Sin fecha'}
+                </p>
+              </Card>
+            );
+          })}
         </Gallery>
       )}
 
