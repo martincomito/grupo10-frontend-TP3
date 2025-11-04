@@ -164,12 +164,6 @@ npm run build
 npm run preview
 ```
 
-## 🌐 Deploy
-
-La aplicación está deployada en **Vercel** y es accesible públicamente en:
-
-https://react-g10.vercel.app/
-
 ## 🤝 Equipo de Desarrollo
 
 | Licha | Frontend / Hardware
