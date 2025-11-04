@@ -1,22 +1,137 @@
 [
-    {"Nombre": "Vincent van Gogh", "Edad": 37, "ObrasFamosas": ["Starry Night", "Sunflowers", "The Potato Eaters"]},
-    {"Nombre": "Pablo Picasso", "Edad": 91, "ObrasFamosas": ["Guernica", "Les Demoiselles d'Avignon", "The Weeping Woman"]},
-    {"Nombre": "Frida Kahlo", "Edad": 47, "ObrasFamosas": ["The Two Fridas", "Self-Portrait with Thorn Necklace and Hummingbird", "The Broken Column"]},
-    {"Nombre": "Leonardo da Vinci", "Edad": 67, "ObrasFamosas": ["Mona Lisa", "La Ultima Cena", "Vitruvian Man"]},
-    {"Nombre": "Claude Monet", "Edad": 86, "ObrasFamosas": ["Water Lilies", "Impression, Sunrise", "Rouen Cathedral Series"]},       
-    {"Nombre": "Salvador Dali", "Edad": 85, "ObrasFamosas": ["La Persistencia de la Memoria", "Cristo de San Juan de la Cruz"]},       
-    {"Nombre": "Rembrandt", "Edad": 63, "ObrasFamosas": ["La Ronda de Noche", "Leccion de Anatomia del Dr. Nicolaes Tulp"]},       
-    {"Nombre": "Michelangelo Caravaggio", "Edad": 39, "ObrasFamosas": ["Baco", "La Vocacion de San Mateo"]},       
-    {"Nombre": "Francisco de Goya", "Edad": 82, "ObrasFamosas": ["El tres de Mayo de 1808 en Madrid", "La Maja Vestida"]},       
-    {"Nombre": "Pierre-Auguste Renoir", "Edad": 78, "ObrasFamosas": ["Baile en el Moulin de la Galette", "Almuerzo de Remeros"]},       
-    {"Nombre": "Diego Velazquez", "Edad": 61, "ObrasFamosas": ["Las Meninas", "La Rendicion de Breda"]},       
-    {"Nombre": "Caspar David Friedrich", "Edad": 66, "ObrasFamosas": ["Acantilado de tiza en la Isla de Rügen", "Vista desde un Puerto"]},       
-    {"Nombre": "August Macke", "Edad": 27, "ObrasFamosas": ["Dama con chaqueta verde", "Vista en un callejón", "Casa luminosa"]},       
-    {"Nombre": "Albrecht Dürer", "Edad": 57, "ObrasFamosas": ["El Gran Cesped", "Joven Liebre", "Manos Rezando"]},       
-    {"Nombre": "Jan Vermeer", "Edad": 43, "ObrasFamosas": ["La Joven de la Perla", "La Lechera", "El Astronomo"]},       
-    {"Nombre": "Max Liebermann", "Edad": 88, "ObrasFamosas": ["Restaurante Jacobo en Nienstedten cerca de Elbe", "Reiter am Strand", "Parrot Avenue", "En las playas de Nordwijk"]},       
-    {"Nombre": "Paul Cézanne", "Edad": 81, "ObrasFamosas": ["The bay of Estaque", "Montagne Sainte-Victoire", "Card-player", "Naturaleza Muerta con Manzanas y Naranjas", "El Jarron Azul"]},       
-    {"Nombre": "Edvard Munch", "Edad": 86, "ObrasFamosas": ["The Sun", "El Grito", "Mujer con Amapolas"]},       
-    {"Nombre": "Miguel Ángel Buonarroti", "Edad": 89, "ObrasFamosas": ["La Creacion de Adan", "El Juicio Final"]},       
-    {"Nombre": "Paula Modersohn-Becker", "Edad": 31, "ObrasFamosas": ["Ramo de Flores Silvestres", "Niño con un Gato", "Dos Niños al Sol"]}       
+  {
+    "Nombre": "Vincent van Gogh",
+    "Edad": 37,
+    "Período": "Post-impresionismo",
+    "ObrasFamosas": ["Starry Night", "Sunflowers", "The Potato Eaters"]
+  },
+  {
+    "Nombre": "Pablo Picasso",
+    "Edad": 91,
+    "Período": "Siglo XX",
+    "ObrasFamosas": ["Guernica", "Les Demoiselles d'Avignon", "The Weeping Woman"]
+  },
+  {
+    "Nombre": "Frida Kahlo",
+    "Edad": 47,
+    "Período": "Siglo XX",
+    "ObrasFamosas": [
+      "The Two Fridas",
+      "Self-Portrait with Thorn Necklace and Hummingbird",
+      "The Broken Column"
+    ]
+  },
+  {
+    "Nombre": "Leonardo da Vinci",
+    "Edad": 67,
+    "Período": "Renacimiento",
+    "ObrasFamosas": ["Mona Lisa", "La Ultima Cena", "Vitruvian Man"]
+  },
+  {
+    "Nombre": "Claude Monet",
+    "Edad": 86,
+    "Período": "Impresionismo",
+    "ObrasFamosas": ["Water Lilies", "Impression, Sunrise", "Rouen Cathedral Series"]
+  },
+  {
+    "Nombre": "Salvador Dali",
+    "Edad": 85,
+    "Período": "Surrealismo",
+    "ObrasFamosas": ["La Persistencia de la Memoria", "Cristo de San Juan de la Cruz"]
+  },
+  {
+    "Nombre": "Rembrandt",
+    "Edad": 63,
+    "Período": "Barroco",
+    "ObrasFamosas": ["La Ronda de Noche", "Leccion de Anatomia del Dr. Nicolaes Tulp"]
+  },
+  {
+    "Nombre": "Michelangelo Caravaggio",
+    "Edad": 39,
+    "Período": "Barroco",
+    "ObrasFamosas": ["Baco", "La Vocacion de San Mateo"]
+  },
+  {
+    "Nombre": "Francisco de Goya",
+    "Edad": 82,
+    "Período": "Romanticismo",
+    "ObrasFamosas": ["El tres de Mayo de 1808 en Madrid", "La Maja Vestida"]
+  },
+  {
+    "Nombre": "Pierre-Auguste Renoir",
+    "Edad": 78,
+    "Período": "Impresionismo",
+    "ObrasFamosas": ["Baile en el Moulin de la Galette", "Almuerzo de Remeros"]
+  },
+  {
+    "Nombre": "Diego Velazquez",
+    "Edad": 61,
+    "Período": "Barroco",
+    "ObrasFamosas": ["Las Meninas", "La Rendicion de Breda"]
+  },
+  {
+    "Nombre": "Caspar David Friedrich",
+    "Edad": 66,
+    "Período": "Romanticismo",
+    "ObrasFamosas": ["Acantilado de tiza en la Isla de Rügen", "Vista desde un Puerto"]
+  },
+  {
+    "Nombre": "August Macke",
+    "Edad": 27,
+    "Período": "Expresionismo",
+    "ObrasFamosas": ["Dama con chaqueta verde", "Vista en un callejón", "Casa luminosa"]
+  },
+  {
+    "Nombre": "Albrecht Dürer",
+    "Edad": 57,
+    "Período": "Renacimiento",
+    "ObrasFamosas": ["El Gran Cesped", "Joven Liebre", "Manos Rezando"]
+  },
+  {
+    "Nombre": "Jan Vermeer",
+    "Edad": 43,
+    "Período": "Barroco",
+    "ObrasFamosas": ["La Joven de la Perla", "La Lechera", "El Astronomo"]
+  },
+  {
+    "Nombre": "Max Liebermann",
+    "Edad": 88,
+    "Período": "Impresionismo",
+    "ObrasFamosas": [
+      "Restaurante Jacobo en Nienstedten cerca de Elbe",
+      "Reiter am Strand",
+      "Parrot Avenue",
+      "En las playas de Nordwijk"
+    ]
+  },
+  {
+    "Nombre": "Paul Cézanne",
+    "Edad": 81,
+    "Período": "Post-impresionismo",
+    "ObrasFamosas": [
+      "The bay of Estaque",
+      "Montagne Sainte-Victoire",
+      "Card-player",
+      "Naturaleza Muerta con Manzanas y Naranjas",
+      "El Jarron Azul"
+    ]
+  },
+  {
+    "Nombre": "Edvard Munch",
+    "Edad": 86,
+    "Período": "Expresionismo",
+    "ObrasFamosas": ["The Sun", "El Grito", "Mujer con Amapolas"]
+  },
+  {
+    "Nombre": "Miguel Ángel Buonarroti",
+    "Edad": 89,
+    "Período": "Renacimiento",
+    "ObrasFamosas": ["La Creacion de Adan", "El Juicio Final"]
+  },
+  {
+    "Nombre": "Paula Modersohn-Becker",
+    "Edad": 31,
+    "Período": "Expresionismo",
+    "ObrasFamosas": ["Ramo de Flores Silvestres", "Niño con un Gato", "Dos Niños al Sol"]
+  }
 ]
