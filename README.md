@@ -30,6 +30,7 @@
 │   ├── App.jsx
 │   ├── componentes
 │   │   ├── BuscadorFiltros.jsx
+│   │   ├── ScrollAlInicio.jsx
 │   │   ├── Card.jsx
 │   │   ├── Footer.jsx
 │   │   └── Sidebar.jsx
