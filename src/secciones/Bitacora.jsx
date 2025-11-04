@@ -222,13 +222,29 @@ export const Bitacora = () => {
           <li>Componentes reutilizables (Card, Tarjeta)</li>
           <li>Carga de datos desde archivo JSON local (Pintores)</li>
           <li>Consumo de API pública (Metropolitan Museum)</li>
+          <li>Animaciones suaves y transiciones entre páginas</li>
+          <li>Búsqueda y filtrado en el JSON local de pintores.json</li>
+          <li>Paginación de la API de Met Museum</li>
+          <li>Barras de progreso de habilidades en las Cards</li>
+          <li>Botones de redes sociales animados con links en las Cards</li>
           <li>Responsividad (móvil, tablet, desktop)</li>
           <li>Deploy en Vercel</li>
         </ul>
       </Section>
 
       <Section>
-        <h2>Mejoras Implementadas Durante el Desarrollo</h2>
+        <h2>Mejoras agregadas en esta entrega</h2>
+        <ul>
+          <li>Animaciones suaves, transiciones entre páginas y en la carga de las tarjetas</li>
+          <li>Búsqueda y filtrado en el JSON local de pintores.json</li>
+          <li>Paginación de la API de Met Museum</li>
+          <li>Barras de progreso de habilidades en las Cards.jsx</li>
+          <li>Botones de redes sociales animados con links de ejemplo en las Cards</li>
+        </ul>
+      </Section>
+
+      <Section>
+        <h2>Mejoras implementadas anteriormente</h2>
         <ul>
           <li>Rediseño del sidebar con mejor UX en dispositivos móviles</li>
           <li>Limpieza de CSS global - fondo de página correcto</li>

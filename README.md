@@ -1,49 +1,107 @@
-# 🎨 Museo Grupazo - Single Page Application
+# Museo Grupazo - Single Page Application
 
-Una aplicación React moderna que presenta un museo virtual de artistas y obras de arte, desarrollada colaborativamente por el Grupo 10 como trabajo práctico de la tecnicatura.
+[Link](https://github.com/lucre-ph/reactG10) a la versión anterior del proyecto en GitHub con su README.
 
-## 🎯 Descripción del Proyecto
-
-**Museo Grupazo** es una SPA (Single Page Application) que permite explorar información sobre artistas famosos y sus obras maestras. El proyecto integra datos locales en JSON, consumo de APIs públicas, y un diseño moderno con tema claro/oscuro.
-
-### Características principales
-
-- Galería de artistas del equipo
-- Integración con API del Metropolitan Museum
-- Datos locales en JSON con artistas famosos
-- Tema claro/oscuro personalizable
-- Diseño completamente responsivo
-- Navegación SPA sin recargas de página
-
-## 📁 Estructura del Proyecto
+## 📁 Estructura del Proyecto luego de los últimos cambios
 
 ```
 /
-├── src/
-│ ├── componentes/ # Componentes reutilizables ("piezas de Lego" de la UI)
-│ │ ├── Card.jsx
-│ │ ├── Sidebar.jsx
-│ │ └── Footer.jsx
-│ ├── secciones/ # Componentes que actúan como páginas o vistas principales
-│ │ ├── Inicio.jsx
-│ │ ├── Nosotros.jsx
-│ │ ├── Bitacora.jsx
-│ │ ├── Galeria.jsx
-│ │ ├── Pintores.jsx
-│ │ └── [integrantes] # Licha.jsx, Lu.jsx, Mila.jsx, Tincho.jsx, Pablo.jsx
-│ ├── rutas/
-│ │ └── rutas.jsx # Configuración centralizada de React Router
-│ ├── estilos/
-│ │ └── Estilos.jsx # Lógica para los temas (light/dark) con Styled Components
-│ ├── data/
-│ │ └── pintores.json # Datos locales consumidos por la aplicación
-│ ├── App.jsx # Componente raíz que organiza el layout principal de la aplicación
-│ ├── main.jsx # Punto de entrada de JavaScript, donde React se monta en el DOM
-│ └── index.css # Estilos globales y reseteos de CSS
-├── public/
-│ └── imagenes/ # Contiene todos los assets estáticos como imágenes y logos
-└── index.html # El "cascarón" donde se inyecta toda la SPA (Single Page Application)
+├── .gitignore
+├── .prettierrc.json
+├── eslint.config.js
+├── index.html
+├── museo.ico
+├── package-lock.json
+├── package.json
+├── project-structure.txt
+├── public
+│   └── imagenes
+│       ├── licha.png
+│       ├── lu.png
+│       ├── mila.png
+│       ├── museo.jpg
+│       ├── museodark.jpg
+│       ├── pablo.png
+│       └── tincho.png
+├── README.md
+├── src
+│   ├── App.jsx
+│   ├── componentes
+│   │   ├── BuscadorFiltros.jsx
+│   │   ├── Card.jsx
+│   │   ├── Footer.jsx
+│   │   └── Sidebar.jsx
+│   ├── data
+│   │   └── pintores.json
+│   ├── diagramaHorizontal.png
+│   ├── estilos
+│   │   └── Estilos.jsx
+│   ├── index.css
+│   ├── main.jsx
+│   ├── rutas
+│   │   └── rutas.jsx
+│   └── secciones
+│       ├── Bitacora.jsx
+│       ├── Galeria.jsx
+│       ├── Inicio.jsx
+│       ├── Licha.jsx
+│       ├── Lu.jsx
+│       ├── Mila.jsx
+│       ├── Nosotros.jsx
+│       ├── Pablo.jsx
+│       ├── Pintores.jsx
+│       └── Tincho.jsx
+├── vercel.json
+└── vite.config.js
+
 ```
+
+## Cambios implementados en esta entrega según requerimientos:
+
+(links a videos en Google Drive)
+
+### 1. Animaciones suaves utilizando CSS
+
+Utilizando CSS puro, se agregaron animaciones y transiciones a páginas y elementos de la interfaz, haciendo la navegación mucho más atractiva.
+
+#### Antes:
+
+- [Animaciones](https://drive.google.com/file/d/1swiQSnwmaufszY_FrmzZVY29Rd8s39cr/view?usp=drive_link)
+- [Transiciones](https://drive.google.com/file/d/1JWIKNZPeqlCNL6dg4k7qwkwtrsDjxYye/view?usp=drive_link)
+
+#### Después:
+
+- [Animaciones](https://drive.google.com/file/d/1aec-kq1Lrz6NQbex7uwGp8V7IrI8wZ2N/view?usp=drive_link)
+- [Transiciones](https://drive.google.com/file/d/1_b4CoiIM43inTmt-R4YAmpAVWoK8eJYV/view?usp=drive_link)
+
+### 2. Búsqueda/Filtrado en JSON local
+
+Implementación de búsqueda y filtrado en los valores del archivo `pintores.json`, agregando el campo período a cada objeto para permitir el filtrado desde los dropdowns según nombre, edad, período y obras de los artistas.
+
+- [Filtrado y búsqueda](https://drive.google.com/file/d/1PIW_q_7lBGqPGTt3J6_tgcBcpB2bmXNL/view?usp=drive_link)
+
+### 3. Paginación de la API
+
+Se implementó paginación del lado del cliente: primero se obtienen todos los IDs, luego se paginan de a 5 elementos. Los botones se deshabilitan en la primera y última página para evitar errores. La paginación se muestra solo cuando hay datos cargados y no hay errores.
+
+- [Antes](https://drive.google.com/file/d/1x3xg6pMKSzqLCVJ853WloZDDM0wbG21v/view?usp=drive_link)
+
+- [Después](https://drive.google.com/file/d/1du13JcB-FFx9AlD9jAt507_lvkB4F-1_/view?usp=drive_link)
+
+### 4. Barras de progreso de habilidades en las Cards
+
+Se agregaron barras de progreso a la card de cada integrante del equipo, en la cual el valor de cada habilidad depende del objeto que recibe el componente `Tarjeta` por medio de la prop `habilidades`
+
+- [Antes](https://drive.google.com/file/d/1gDTw8A4mNGcvT2oGN8Gyhgjybj602AD4/view?usp=drive_link)
+
+- [Después](https://drive.google.com/file/d/1XGr1qO-ZXM6whTktoypuXjNYVfiwkxHv/view?usp=drive_link)
+
+### 5. Botones de Redes Sociales Animados
+
+En la Card de cada integrante se declararon y animaron los elementos SVG de los íconos con transiciones y filtros para darles más interactividad.
+
+- [Antes](https://drive.google.com/file/d/1gDTw8A4mNGcvT2oGN8Gyhgjybj602AD4/view?usp=drive_link)
+- [Después](https://drive.google.com/file/d/1bk2Jz0YlHR_wkeOp6cuX7GVifTzbxp42/view?usp=drive_link)
 
 ## 🚀 Tecnologías Utilizadas
 
@@ -121,21 +179,3 @@ https://react-g10.vercel.app/
 ## 📝 Licencia
 
 Este proyecto es parte de un trabajo académico. Todos los derechos reservados © 2025 Grupazo.
-
-## 🚀 Mejoras Futuras
-
-Este archivo se actualizará en el próximo trabajo práctico (TP3), incorporando:
-
-- [ ] Paginación en galería
-- [ ] Filtros avanzados
-- [ ] Formulario de contacto
-- [ ] Más integraciones de APIs
-- [ ] Animaciones mejoradas
-- [ ] Soporte multiidioma
-
-
-## 🗂️ Estructura del Proyecto
-
-A continuación se muestra el diagrama del proyecto:
-
-![Diagrama](./src/diagramaHorizontal.png)
