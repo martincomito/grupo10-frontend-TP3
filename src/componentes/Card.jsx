@@ -70,6 +70,51 @@ const Card = styled.div`
   }
 `;
 
+const ItemHabilidad = styled.li`
+  margin: 0.8rem 0;
+`;
+
+const NombreHabilidad = styled.span`
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+  color: ${({ theme }) => theme.fontColor};
+`;
+
+const ContenedorBarraProgreso = styled.div`
+  width: 100%;
+  height: 20px;
+  background-color: ${({ theme }) => theme.secondary};
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid ${({ theme }) => theme.border};
+  position: relative;
+`;
+
+const RellenoBarraProgreso = styled.div`
+  height: 100%;
+  width: ${({ value }) => `${Math.min(Math.max(value, 0), 100)}%`};
+  background: linear-gradient(
+    90deg,
+    ${({ theme }) => theme.accent},
+    ${({ theme }) => theme.accent}dd
+  );
+  border-radius: 10px;
+  transition: width 0.6s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+`;
+
+const ValorProgreso = styled.span`
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: ${({ theme }) => theme.body};
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+`;
+
 const BotonVolver = styled(Link)`
   display: block;
   margin: 1.5rem auto 0 auto;
@@ -115,9 +160,27 @@ export const Tarjeta = ({ ...data }) => (
     <p>🎂 {data.edad}</p>
     <h3>🎯 Habilidades</h3>
     <ul>
-      {data.habilidades.map((h, i) => (
-        <li key={i}>{h}</li>
-      ))}
+      {data.habilidades.map((h, i) => {
+        // Support both old format (string) and new format (object with nombre and valor)
+        const habilidad = typeof h === 'string' ? { nombre: h, valor: 50 } : h;
+        const valor = Math.min(Math.max(habilidad.valor || 0, 0), 100);
+
+        return (
+          <ItemHabilidad key={i}>
+            <NombreHabilidad>{habilidad.nombre || h}</NombreHabilidad>
+            <ContenedorBarraProgreso>
+              <RellenoBarraProgreso value={valor}>
+                {valor >= 15 && <ValorProgreso>{valor}%</ValorProgreso>}
+              </RellenoBarraProgreso>
+            </ContenedorBarraProgreso>
+            {valor < 15 && (
+              <ValorProgreso style={{ marginLeft: '8px', color: 'inherit' }}>
+                {valor}%
+              </ValorProgreso>
+            )}
+          </ItemHabilidad>
+        );
+      })}
     </ul>
     <h3>🎬 Películas favoritas</h3>
     <ul>

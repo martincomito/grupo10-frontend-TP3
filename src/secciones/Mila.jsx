@@ -7,20 +7,12 @@ export const Mila = () => (
     ubicacion="General Deheza, Córdoba"
     edad="27 años"
     habilidades={[
-      "Redacción",
-      "Debug",
-      "Jugar al R.E.P.O",
-      "Reírse como un globo desinflándose"
+      { nombre: 'Redacción', valor: 88 },
+      { nombre: 'Debug', valor: 82 },
+      { nombre: 'Jugar al R.E.P.O', valor: 75 },
+      { nombre: 'Reírse como un globo desinflándose', valor: 100 },
     ]}
-    peliculas={[
-      "Sing",
-      "Rave",
-      "Malala"
-    ]}
-    musica={[
-      "Rock",
-      "Cumbia",
-      "Cuartetazo"
-    ]}
+    peliculas={['Sing', 'Rave', 'Malala']}
+    musica={['Rock', 'Cumbia', 'Cuartetazo']}
   />
 );
