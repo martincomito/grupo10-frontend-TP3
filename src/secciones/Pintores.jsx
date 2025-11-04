@@ -32,6 +32,15 @@ const Grid = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
+
+  @media (max-width: 799px) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (max-width: 399px) {
+    gap: 0.8rem;
+  }
 `;
 
 const Card = styled.div.withConfig({

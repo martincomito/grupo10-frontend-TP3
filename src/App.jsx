@@ -3,6 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Sidebar } from './componentes/Sidebar';
 import { Rutas } from './rutas/rutas';
 import { Footer } from './componentes/Footer';
+import { ScrollAlInicio } from './componentes/ScrollAlInicio';
 import { Light, Dark } from './estilos/Estilos';
 import { ThemeProvider, styled } from 'styled-components';
 
@@ -22,6 +23,8 @@ function App() {
       <ThemeContext.Provider value={{ theme, setTheme }}>
         <ThemeProvider theme={estiloTheme}>
           <BrowserRouter>
+            {/* Scroll al inicio de la página cada vez que se navega a una nueva página */}
+            <ScrollAlInicio />
             <Overlay sidebarAbierto={sidebarAbierto} onClick={toggleSidebar} />
             <Contenedor sidebarAbierto={sidebarAbierto}>
               <Sidebar
@@ -45,18 +48,19 @@ function App() {
 const Overlay = styled.div.withConfig({
   shouldForwardProp: prop => prop !== 'sidebarAbierto',
 })`
-  display: none;
+  display: ${({ sidebarAbierto }) => (sidebarAbierto ? 'block' : 'none')};
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  transition: opacity 0.3s ease;
 
   @media (min-width: 500px) {
-    display: ${({ sidebarAbierto }) => (sidebarAbierto ? 'block' : 'none')};
-    position: fixed;
-    top: 0;
     left: 80px;
     width: calc(100% - 80px);
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 999;
-    transition: opacity 0.3s ease;
   }
 `;
 
@@ -80,17 +84,16 @@ const Contenedor = styled.div.withConfig({
   width: calc(100% - 80px);
 
   @media (max-width: 499px) {
-    margin-left: ${({ sidebarAbierto }) => (sidebarAbierto ? '220px' : '70px')};
-    width: ${({ sidebarAbierto }) => (sidebarAbierto ? 'calc(100% - 220px)' : 'calc(100% - 70px)')};
+    margin-left: 70px;
+    width: calc(100% - 70px);
     padding: clamp(1rem, 3vw, 1.5rem);
     padding-right: clamp(1rem, 2vw, 1.2rem);
     padding-left: clamp(1rem, 2vw, 1.2rem);
-    transition: margin-left 0.3s ease, width 0.3s ease;
   }
 
   @media (max-width: 399px) {
-    margin-left: ${({ sidebarAbierto }) => (sidebarAbierto ? '180px' : '60px')};
-    width: ${({ sidebarAbierto }) => (sidebarAbierto ? 'calc(100% - 180px)' : 'calc(100% - 60px)')};
+    margin-left: 60px;
+    width: calc(100% - 60px);
     padding: clamp(0.8rem, 2vw, 1rem);
     padding-right: clamp(0.8rem, 1.5vw, 1rem);
     padding-left: clamp(0.8rem, 1.5vw, 1rem);
@@ -108,6 +111,10 @@ const Main = styled.main`
   padding: 2rem;
   margin-bottom: 2rem;
   flex-shrink: 0;
+
+  @media (max-width: 499px) {
+    padding: 0;
+  }
 `;
 
 export default App;

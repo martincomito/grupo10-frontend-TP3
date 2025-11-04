@@ -51,11 +51,7 @@ const SidebarStyled = styled.aside.withConfig({
   border-right: 1px solid ${({ theme }) => theme.border};
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  z-index: 1000;
-
-  @media (min-width: 500px) {
-    z-index: ${({ sidebarAbierto }) => (sidebarAbierto ? '1001' : '1000')};
-  }
+  z-index: ${({ sidebarAbierto }) => (sidebarAbierto ? '1001' : '1000')};
 
   @media (max-width: 499px) {
     width: ${({ sidebarAbierto }) => (sidebarAbierto ? '220px' : '70px')};
